@@ -7,3 +7,67 @@ Example
 Input: "Jasmine Ann Jones"
 
 Output: "Jasmine%20Ann%20Jones"
+
+
+// Problem #1
+// URLs cannot have spaces, instead all spaces are replaced with %20
+// Write an algorithm that replaces all spaces with %20
+// Do not use replace() or regex
+// Please resolve the problem with and without recursion
+
+// Input: Jasmine Anne Jones (string)
+// Output: Jasmine%20Anne%20Jones (string)
+// Edge cases: Must input a string, other special characters or URLs
+
+// JavaScript = YES!
+
+// Without Recursion
+
+// Pseudocode
+// function getUrl
+//   Check that string is indeed a string
+//   If not a string, Return "is not a string" "Please enter a string"
+//   Split that string into an array on empty spaces
+//   Return an array join that with %20 in place of the empty spaces
+
+
+// algorithm
+
+// Without Recursion
+
+const getUrl = (string) => {
+  // checking that string is indeed a string
+  if (typeof string != 'string') {
+    return "please enter a string."
+  }
+  // Split that string into an array on the empty spaces
+  const arr = string.split(" ");
+  // Return an array joined with %20 in place of the empty spaces
+  return arr.join("20%");
+};
+
+
+// Test
+console.log(getUrl("Jasmine Ann Jones"));
+
+// --------****---------
+
+// With Recursion
+
+// const getUrlWithRecursion = (string) => {
+//   // base case / termination case
+//   if (typeof string != 'string') {
+//     return "please enter a string."
+//   }
+//   // Split that string into an array on the empty spaces
+//   const arr = string.split(" ");
+//   if (arr.length === 1) {
+//     return arr[0];
+//   } else { 
+//     return arr[0].concat("%20").concat(getUrlWithRecursion(arr.slice(1).join(" ")))
+//   }
+// }
+
+// // Test
+
+// console.log(getUrlWithRecursion("Jasmine Ann Jones"));
