@@ -1,12 +1,12 @@
-Question #1: Turning Strings to URLs
-URLs cannot have spaces. Instead, all spaces in a string are replaced with %20. Write an algorithm that replaces all spaces in a string with %20.
+// Question #1: Turning Strings to URLs
+// URLs cannot have spaces. Instead, all spaces in a string are replaced with %20. Write an algorithm that replaces all spaces in a string with %20.
 
-You may not use the replace() method or regular expressions to solve this problem. Solve the problem with and without recursion.
+// You may not use the replace() method or regular expressions to solve this problem. Solve the problem with and without recursion.
 
-Example
-Input: "Jasmine Ann Jones"
+// Example
+// Input: "Jasmine Ann Jones"
 
-Output: "Jasmine%20Ann%20Jones"
+// Output: "Jasmine%20Ann%20Jones"
 
 
 // Problem #1
@@ -31,7 +31,7 @@ Output: "Jasmine%20Ann%20Jones"
 //   Return an array join that with %20 in place of the empty spaces
 
 
-// algorithm
+// Algorithm
 
 // Without Recursion
 
@@ -54,20 +54,19 @@ console.log(getUrl("Jasmine Ann Jones"));
 
 // With Recursion
 
-// const getUrlWithRecursion = (string) => {
-//   // base case / termination case
-//   if (typeof string != 'string') {
-//     return "please enter a string."
-//   }
-//   // Split that string into an array on the empty spaces
-//   const arr = string.split(" ");
-//   if (arr.length === 1) {
-//     return arr[0];
-//   } else { 
-//     return arr[0].concat("%20").concat(getUrlWithRecursion(arr.slice(1).join(" ")))
-//   }
-// }
+const getUrlWithRecursion = (string) => {
+   if (typeof string != 'string') {
+     return "please enter a string."
+   }
+   // Split that string into an array on the empty spaces
+   const arr = string.split(" ");
+   if (arr.length === 1) {
+     return arr[0];
+   } else { 
+     return arr[0].concat("%20").concat(getUrlWithRecursion(arr.slice(1).join(" ")))
+   }
+ }
 
 // // Test
 
-// console.log(getUrlWithRecursion("Jasmine Ann Jones"));
+console.log(getUrlWithRecursion("Jasmine Ann Jones"));
